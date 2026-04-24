@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>豐原廟東夜市 | Fengyuan Miaodong Night Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Serif+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#fdb244",
+                "on-primary-fixed": "#410001",
+                "on-background": "#1d1b17",
+                "on-surface": "#1d1b17",
+                "tertiary-container": "#795552",
+                "on-primary-fixed-variant": "#8f1010",
+                "on-secondary-container": "#6e4600",
+                "background": "#fef9f1",
+                "on-error-container": "#93000a",
+                "surface-container": "#f2ede6",
+                "surface-tint": "#b12c25",
+                "on-tertiary-container": "#fcccc9",
+                "inverse-primary": "#ffb4aa",
+                "outline": "#8d706d",
+                "tertiary-fixed": "#ffdad7",
+                "on-surface-variant": "#59413e",
+                "secondary": "#835400",
+                "primary-fixed": "#ffdad5",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed": "#ffddb5",
+                "error": "#ba1a1a",
+                "surface-bright": "#fef9f1",
+                "surface-container-low": "#f8f3eb",
+                "outline-variant": "#e1bfba",
+                "on-secondary-fixed-variant": "#633f00",
+                "on-primary-container": "#ffcbc5",
+                "primary-fixed-dim": "#ffb4aa",
+                "inverse-surface": "#32302c",
+                "inverse-on-surface": "#f5f0e9",
+                "primary": "#8e0f0f",
+                "secondary-fixed-dim": "#ffb956",
+                "on-tertiary-fixed": "#2e1413",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e7e2db",
+                "tertiary": "#5e3e3b",
+                "on-tertiary-fixed-variant": "#5f3e3c",
+                "surface-dim": "#ded9d2",
+                "on-secondary-fixed": "#2a1800",
+                "surface-variant": "#e7e2db",
+                "primary-container": "#b02b24",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-container-high": "#ede7e0",
+                "surface": "#fef9f1",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#eabcb8"
+            },
+            "fontFamily": {
+                "body-md": ["Noto Serif TC", "serif"],
+                "label-sm": ["Noto Serif TC", "serif"],
+                "body-lg": ["Noto Serif TC", "serif"],
+                "headline-lg": ["Newsreader", "serif"],
+                "headline-xl": ["Newsreader", "serif"],
+                "headline-md": ["Newsreader", "serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body {
+        background-color: #DCD7D0; /* 磨石子灰 */
+        color: #4A2C2A;
+      }
+      .double-border {
+        border: 4px double #4A2C2A
+      }
+      .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed
+      }
+      .red-chop {
+        background-color: #B02B24;
+        mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%)
+      }
+      .shadow-retro {
+        box-shadow: 6px 6px 0 0 rgba(74, 44, 42, 1)
+      }
+      .image-placeholder {
+        background-color: #EEEEEE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #8d706d;
+        font-family: "Noto Serif TC", serif;
+        color: #8d706d
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      section.hidden-view {
+        display: none;
+      }
+      /* Modal Styles */
+      #contact-modal {
+        display: none;
+      }
+      #contact-modal.active {
+        display: flex;
+      }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-[#F4F1EA] dark:bg-stone-900 border-b-[3px] border-[#4A2C2A] border-double">
+<div class="text-2xl font-black text-[#4A2C2A] dark:text-stone-100 border-l-4 border-[#B02B24] pl-4 font-serif Newsreader tracking-wider uppercase cursor-pointer" onclick="showView('home-view')">
+            豐原廟東夜市
+        </div>
+</header>
+<main class="pt-28 pb-24 px-8 max-w-[1200px] mx-auto">
+<!-- Home View -->
+<section class="fade-in" id="home-view">
+<div class="flex flex-col gap-12">
+<div class="max-w-2xl">
+<h2 class="text-headline-xl font-headline-xl text-[#B02B24] mb-4">百載廟口，在地滋味</h2>
+<p class="text-body-lg text-[#4A2C2A] border-l-2 border-[#B02B24] pl-4">
+                        座落於豐原慈濟宮旁，一條不足百公尺的小巷，承載了數十載的飲食記憶。從清晨到深夜，火候不斷，香氣未歇。
+                    </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Shop 1 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-1')">
+<img src="首圖_排骨麵.jpg" alt="廟東清水排骨麵" class="w-full h-full object-cover mb-2">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">廟東清水排骨麵</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+<!-- Shop 2 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-2')">
+<img src="菱角酥_首頁.jpg" alt="廟東菱角酥" class="w-full h-full object-cover">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">廟東菱角酥</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+<!-- Shop 3 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-3')">
+<img src="蚵仔煎_首頁.jpg" alt="正兆蚵仔煎" class="w-full h-full object-cover">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">正兆蚵仔煎</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+<!-- Shop 4 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-4')">
+<img src="金樹_首頁.jpg" alt="金樹冰果室" class="w-full h-full object-cover">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">金樹冰果室</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+<!-- Shop 5 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-5')">
+<img src="首頁_永芳亭.jpg" alt="永芳亭扁食" class="w-full h-full object-cover">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">永芳亭扁食</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+<!-- Shop 6 Card -->
+<div class="group relative aspect-square bg-white double-border p-2 transition-transform hover:-translate-y-2 hover:shadow-retro cursor-pointer" onclick="showView('shop-6')">
+<img src="肉丸_首頁.jpg" alt="正老牌豐原肉丸" class="w-full h-full object-cover">
+<div class="absolute top-4 right-4 bg-[#B02B24] text-white py-4 px-2 vertical-text font-bold tracking-widest text-lg">正老牌豐原肉丸</div>
+<div class="absolute bottom-4 left-4 bg-[#F2A93B] px-4 py-1 text-sm font-bold border border-[#4A2C2A] group-hover:bg-white transition-colors">進入</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detail Template (Shop 1: 廟東清水排骨麵) -->
+<section class="hidden-view fade-in" id="shop-1">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] leading-tight border-r-4 border-double border-[#B02B24] pr-4">廟東清水排骨麵</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">歷史傳承</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">傳承三代的秘製配方，先炸後蒸的排骨酥，入口即化，湯頭醇厚，是無數旅人來到豐原的首站。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="店家視覺_排骨麵.jpg" alt="廟東清水排骨麵視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">製作工藝：火候與時間的藝術</h3>
+<p class="text-body-lg leading-loose mb-8">每一塊排骨都經過精挑細選，切割成適當大小後，以獨門秘方醃漬入味。隨後下鍋油炸至金黃酥脆，鎖住肉汁。最關鍵的一步在於將炸好的排骨放入小盅內，慢火蒸煮數小時。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="照片_排骨麵01.jpg" alt="店家環境" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="照片_排骨麵02.jpg" alt="排隊盛況" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="菜單_排骨麵.jpg" alt="廟東清水排骨麵菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>廟東清水排骨麵</p>
+<p><strong class="font-serif">電話：</strong>04-2523-3704</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷2-10號</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3637.7324028213843!2d120.7191944!3d24.2511364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f5e3b137f%3A0xa92a8f2d167f84e2!2z5buf5p2x5riF5rC05o6S6aqo6bq15bqX!5e0!3m2!1szh-TW!2stw!4v1777032077089!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop 2: 廟東菱角酥 -->
+<section class="hidden-view fade-in" id="shop-2">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] leading-tight border-r-4 border-double border-[#B02B24] pr-4">廟東菱角酥</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">排隊名店</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">廟東夜市最具指標性的小吃，現裹現炸的菱角，外皮金黃酥脆，內裡菱角香鬆，是來到這裡必排隊的療癒美食。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="店家視覺_菱角酥.jpg" alt="廟東菱角酥視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">堅持現作的匠心</h3>
+<p class="text-body-lg leading-loose mb-8">老闆熟練地將切好的菱角裹上麵糊，一顆顆滑入滾燙油鍋。麵皮受熱膨脹，散發淡淡甜香，外酥內軟的口感關鍵在於麵糊的稠度與油溫的控制。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="菱角酥_照片1.jpg" alt="金黃成品" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="菱角酥_照片2.jpg" alt="排隊盛況" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="菱角酥_菜單.jpg" alt="廟東菱角酥菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>廟東菱角酥</p>
+<p><strong class="font-serif">電話：</strong>無 (現場排隊)</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷1號 (路口)</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.719474668342!2d120.71922190000001!3d24.2515884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691b2320aa6e77%3A0x94e04027703920ff!2z5buf5p2x5bed5Luj6I-x6KeS6YWl!5e0!3m2!1szh-TW!2stw!4v1777033900267!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop 3: 正兆蚵仔煎 -->
+<section class="hidden-view fade-in" id="shop-3">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] leading-tight border-r-4 border-double border-[#B02B24] pr-4">正兆蚵仔煎</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">獨門醬料</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">以濃郁的花生醬為基底調製而成的醬汁，淋在酥脆的蚵仔煎上，創造出全台絕無僅有的層次感。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="蚵仔煎_店家.jpg" alt="正兆蚵仔煎視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">鐵板上的交響樂</h3>
+<p class="text-body-lg leading-loose mb-8">新鮮肥美的蚵仔在炙熱鐵板上滋滋作響，淋上粉漿、撒上大量的茼蒿，最後淋上畫龍點睛的花生醬汁。外皮煎得微焦，內裡Q彈有勁。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="蚵仔煎_照片1.jpg" alt="新鮮蚵仔" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="蚵仔煎_照片2.jpg" alt="店內一隅" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="蚵仔煎_菜單.jpg" alt="正兆蚵仔煎菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>正兆蚵仔煎</p>
+<p><strong class="font-serif">電話：</strong>04-2523-9835</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷3號</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.7236362998374!2d120.7192359!3d24.251442899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f6893b02f%3A0x88bc88f35df15cdb!2z5q2j5YWG6Jq15LuU54WO!5e0!3m2!1szh-TW!2stw!4v1777034004252!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop 4: 金樹冰果室 -->
+<section class="hidden-view fade-in" id="shop-4">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] leading-tight border-r-4 border-double border-[#B02B24] pr-4">金樹冰果室</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">清涼解膩</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">一甲子的冰品老店，堅持使用土鳳梨熬煮，不添加人工香料，是炎夏裡廟東夜市最受歡迎的消暑聖品。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="金樹_店家.jpg" alt="金樹冰果室視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">慢火熬煮的琥珀色</h3>
+<p class="text-body-lg leading-loose mb-8">將切塊鳳梨與砂糖一同熬煮，直至鳳梨釋放出自然的果香與酸甜。冷卻後加入細緻的碎冰中，每一口都能吃到果肉的纖維感，生津止渴。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="金樹_照片1.jpg" alt="清涼冰品" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="金樹_照片2.jpg" alt="復古店面" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="金樹_菜單.jpg" alt="金樹冰果室菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>金樹冰果室</p>
+<p><strong class="font-serif">電話：</strong>04-2524-3985</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷2-13號</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.734793932847!2d120.719243!3d24.2510528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f5d598af7%3A0xbd3339895272af25!2z6YeR5qi55Yaw5p6c5a6k!5e0!3m2!1szh-TW!2stw!4v1777034052004!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop 5: 永芳亭扁食 -->
+<section class="hidden-view fade-in" id="shop-5">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] Newsreader leading-tight border-r-4 border-double border-[#B02B24] pr-4">永芳亭扁食</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">黑色湯頭</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">獨創的「黑色」四神湯，以熟地、當歸等中藥材熬製，湯色深如墨卻甘甜順口，與小腸、豬肚、豬腳完美契合。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="店家視覺_永芳亭.jpg" alt="永芳亭扁食視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">漢方的溫潤滋味</h3>
+<p class="text-body-lg leading-loose mb-8">藥材在大鍋中熬煮數時，散發陣陣清香。扁食則是當日現包，內餡紮實，搭配這碗養生卻又不失鮮美的黑湯，是許多長輩指定的在地美味。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="照片_永芳亭01.jpg" alt="藥膳湯底" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="照片_永芳亭02.jpg" alt="老店風華" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="菜單_永芳亭.jpg" alt="永芳亭扁食菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>永芳亭扁食</p>
+<p><strong class="font-serif">電話：</strong>04-2522-3075</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷2-12號</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.733626979895!2d120.71923199999999!3d24.251093599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f60a18f4b%3A0xc7bfe818be7b3f15!2z5rC46Iqz5Lqt5omB6aOfIOiCieeyvQ!5e0!3m2!1szh-TW!2stw!4v1777034154323!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop 6: 正老牌豐原肉丸 -->
+<section class="hidden-view fade-in" id="shop-6">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="md:w-[40%] sticky top-28">
+<div class="flex items-start gap-6">
+<h1 class="text-6xl font-black vertical-text text-[#B02B24] Newsreader leading-tight border-r-4 border-double border-[#B02B24] pr-4">正老牌豐原肉丸</h1>
+<div class="space-y-8 flex-1">
+<div>
+<span class="inline-block bg-[#B02B24] text-white px-3 py-1 text-sm mb-4">低溫油泡</span>
+<p class="text-body-md text-[#4A2C2A] leading-relaxed">豐原最具代表性的肉丸，採用低溫油泡方式熟成，外皮Q彈不軟爛，搭配飽滿的筍丁與豬肉內餡。</p>
+</div>
+<div class="aspect-[2/3] w-full bg-white double-border p-2">
+<img src="肉丸_店家.jpg" alt="正老牌豐原肉丸視覺" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-[60%] space-y-12">
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">手工搥打的韌性</h3>
+<p class="text-body-lg leading-loose mb-8">外皮以在地糯米磨漿製成，包裹大塊醃漬入味的後腿肉與脆口筍乾。放入溫油中慢泡，讓口感介於蒸與炸之間，淋上特製甜白醬與鹹醬油，層次分明。</p>
+<div class="grid grid-cols-2 gap-6">
+<div class="aspect-square bg-white double-border p-2"><img src="肉丸_照片1.jpg" alt="油泡瞬間" class="w-full h-full object-cover"></div>
+<div class="aspect-square bg-white double-border p-2"><img src="肉丸_照片2.jpg" alt="店內景緻" class="w-full h-full object-cover"></div>
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro"><h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">美味菜單</h3>
+<div class="aspect-[4/3] w-full bg-[#EEEEEE]">
+<img src="肉丸_菜單.jpg" alt="正老牌豐原肉丸菜單" class="w-full h-full object-cover">
+</div>
+</div>
+<div class="bg-white p-8 double-border shadow-retro">
+<h3 class="text-2xl font-bold mb-6 border-b border-[#4A2C2A] pb-2">店家資訊</h3>
+<div class="space-y-4 text-body-md mb-8">
+<p><strong class="font-serif">店名：</strong>正老牌豐原肉丸</p>
+<p><strong class="font-serif">電話：</strong>04-2523-4833</p>
+<p><strong class="font-serif">地址：</strong>台中市豐原區中正路167巷2-4號</p>
+</div>
+<div class="aspect-video bg-[#EEEEEE] w-full">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.7263964067565!2d120.71915489999999!3d24.251346400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f5d598bad%3A0x4f82e61959e637dc!2z5q2j6ICB54mM6LGQ5Y6f6IKJ5Li4!5e0!3m2!1szh-TW!2stw!4v1777034100933!5m2!1szh-TW!2stw" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav (Small Rounded Button at bottom-right) -->
+<nav class="fixed bottom-8 right-8 z-50 hidden" id="back-nav">
+<button class="px-6 py-2 rounded-full border-2 border-[#4A2C2A] bg-[#D4AF37] shadow-[4px_4px_0px_0px_rgba(74,44,42,1)] flex items-center gap-2 text-[#4A2C2A] hover:bg-[#C4A030] hover:-translate-y-1 transition-transform group" onclick="showView('home-view')">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+<span class="font-serif font-bold text-sm tracking-widest">返回廟口</span>
+</button>
+</nav>
+<!-- Contact Modal -->
+<div class="fixed inset-0 z-[100] bg-black/50 items-center justify-center p-4" id="contact-modal" onclick="closeModal(event)">
+<div class="bg-[#DCD7D0] double-border max-w-md w-full p-8 shadow-retro relative" onclick="event.stopPropagation()">
+<button class="absolute top-4 right-4 text-[#B02B24]" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h3 class="text-2xl font-bold text-[#B02B24] border-b-2 border-[#B02B24] mb-6 pb-2 font-serif">聯絡資訊</h3>
+<div class="space-y-4 font-serif text-[#4A2C2A]">
+<p><span class="font-bold opacity-60">姓名：</span>羅卉媜</p>
+<p><span class="font-bold opacity-60">學號：</span>11118134</p>
+<p><span class="font-bold opacity-60">聯絡信箱：</span>s11118134cyut@gmail.com</p>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-[#B02B24] text-white px-6 py-2 text-sm font-bold border border-[#4A2C2A]" onclick="closeModal()">關閉</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full mt-16 border-t-4 border-double border-[#D4AF37] bg-[#4A2C2A] dark:bg-stone-950 text-[#F4F1EA] dark:text-stone-300 py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-[#D4AF37] font-bold font-serif text-xl">豐原廟東夜市</div>
+<div class="flex gap-8 font-serif text-sm tracking-widest">
+<button class="opacity-80 hover:text-[#D4AF37] transition-colors cursor-pointer" onclick="openModal()">聯絡我們</button>
+</div>
+<div class="font-serif text-sm tracking-widest">© 豐原廟東夜市 | 歲次甲辰年誌</div>
+</footer>
+<!-- Decorative Corner Elements -->
+<div class="fixed top-0 left-0 w-16 h-16 pointer-events-none z-0 border-t-4 border-l-4 border-[#B02B24] m-4 opacity-30"></div>
+<div class="fixed bottom-0 right-0 w-16 h-16 pointer-events-none z-0 border-b-4 border-r-4 border-[#B02B24] m-4 opacity-30"></div>
+<script>
+        function showView(viewId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.classList.add('hidden-view');
+            });
+
+            // Show target section
+            const target = document.getElementById(viewId);
+            if (target) {
+                target.classList.remove('hidden-view');
+            }
+
+            // Show/Hide Back Button
+            const backNav = document.getElementById('back-nav');
+            if (viewId === 'home-view') {
+                backNav.classList.add('hidden');
+                backNav.classList.remove('flex');
+            } else {
+                backNav.classList.remove('hidden');
+                backNav.classList.add('flex');
+            }
+
+            // Reset scroll position
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openModal() {
+            document.getElementById('contact-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            document.getElementById('contact-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body></html>
